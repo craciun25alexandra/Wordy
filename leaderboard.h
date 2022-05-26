@@ -37,7 +37,7 @@ void AddList(List* list, void* value, int (*compare)(void*, void*)){
         list ->size = 1;
         return;
     }
-    if(compare(n->value, value) > 0) {
+    if(compare(n->value, value) > 0){
         Node* aux = (Node*)malloc(sizeof(struct _Node));
         aux->value = value;
         aux->next = list->head;
@@ -45,7 +45,7 @@ void AddList(List* list, void* value, int (*compare)(void*, void*)){
         list->size ++;
         return;
     }
-    while (n->next != NULL && (compare(n->next->value, value) < 0)) {
+    while (n->next != NULL && (compare(n->next->value, value) < 0)){
         n = n->next;
     }
         Node* aux = (Node*)malloc(sizeof(struct _Node));
