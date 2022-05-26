@@ -105,11 +105,11 @@ int main()
       if (ok == 1)
       {
         num_of_guesses += 1;
-
         guessed_correctly = processGuess(answer, guess);
       }
-      else
+      else{
         printf("Your word is invalide!\n");
+      }
     }
   }
 
