@@ -81,7 +81,16 @@ int FindInList(List *l, void *value, int (*compare1)(void*, void*), int (*compar
     if(l && l->head){
 
         Node *n = l->head;
-        if(compare1(n->value, value)==0) return 0;
+        if(compare1(n->value, value) == 0){
+            if(compare2(n->value, value) < 0) return 0;
+            else{
+                Node *aux = n->next;
+                freePlayer(n->value);
+                free(n);
+                l->head = aux;
+                l->size --;
+                return 1;
+            }}
         while(n->next && compare1(n->next->value, value)!=0){
             n = n->next;
         }
